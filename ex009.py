@@ -12,12 +12,13 @@ cmd('cls')
 #coleta de dados
 letra = input('Insira UMA letra: ')
 #verifica se é letra e apenas uma letra
-if len(letra) > 1 or letra.isdigit() == True :
+if len(letra) > 1 or letra.isalpha() == False :
     print("FALEI PRA INSIRIR APENAS UMA LETRA")
 else:
     vogais = ['a','e','i','o','u']
-    letra = letra.lower() #converte para letra minuscula
-    if letra in vogais: #condição para conferir se é vogal
+    letra = letra.lower()
+    #condição para conferir se é vogal
+    if letra in vogais:
         print("é uma vogal")
     else:
         print("é consoante")

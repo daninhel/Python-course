@@ -1,4 +1,4 @@
-from cmath import sqrt
+import math
 #da as instruções para realizar o calculo
 print(30*'=')
 print('Calcula equação de 2 grau')
@@ -13,10 +13,10 @@ b = int(input("Coloque o relativo à termo 'b' : "))
 c = int(input("Coloque o relativo à termo 'c' : "))
 #eraliza o calculo do delta
 delta = (b**2) - 4 * a * c
-raiz_delta = sqrt(delta)
+raiz_delta = math.sqrt(delta)
 #verifica o resultado de delta e realiza a formula de bhaskara
 if delta < 0 :
-   print("Seu resutlado não existe dentro dos reais")
+    print("Seu resutlado não existe dentro dos reais")
 else :
     #realiza a conta de x um e x dois
     x_primeiro = (-(b)+raiz_delta)/(2 * a)
@@ -28,5 +28,3 @@ else :
     print(f" seu x 1º é {x_primeiro} e seu x 2º é {x_segundo}")
     
 input('Pressione qualquer tecla para continuar. . .')
-
-#5x^2 -3x + 8 = 0 
