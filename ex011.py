@@ -1,13 +1,16 @@
 from os import system as cmd
 from time import sleep as wait
 
+def responsividade() :
+    wait(3)
+    cmd('cls')
+
 message = "Quiz"
 
 print("=" * len(message))
 print(message)
 print("=" * len(message))
-wait(5)
-cmd('cls')
+responsividade()
 
 contador = 0
 respostas_c = ['A','A','A','C','C']
@@ -21,14 +24,14 @@ print("B) Berlim")
 print("C) Londres")
 print("D) Roma")
 resposta = input("Digite a letra correspondente à resposta: ")
+
 if resposta.capitalize() == respostas_c[0] :
     print('Correto!')
     contador += 1
 else:
     print(f'Errado, a resposta correta é {respostas_c[0]} !')
 
-wait(4)
-cmd('cls')
+responsividade()
 
 # Pergunta 2
 print("Pergunta 2:")
@@ -44,8 +47,7 @@ if resposta.capitalize() == respostas_c[1] :
 else:
     print(f'Errado, a resposta correta é {respostas_c[1]} !')
 
-wait(4)
-cmd('cls')
+responsividade()
 
 # Pergunta 3
 print("Pergunta 3:")
@@ -61,8 +63,7 @@ if resposta.capitalize() == respostas_c[2] :
 else:
     print(f'Errado, a resposta correta é {respostas_c[2]} !')
 
-wait(4)
-cmd('cls')
+responsividade()
 
 # Pergunta 4
 print("Pergunta 4:")
@@ -78,8 +79,7 @@ if resposta.capitalize() == respostas_c[3] :
 else:
     print(f'Errado, a resposta correta é {respostas_c[3]} !')
 
-wait(4)
-cmd('cls')
+responsividade()
 
 # Pergunta 5
 print("Pergunta 5:")
@@ -95,8 +95,7 @@ if resposta.capitalize() == respostas_c[4] :
 else:
     print(f'Errado, a resposta correta é {respostas_c[4]} !')
 
-wait(4)
-cmd('cls')
+responsividade()
 
 print(f'Sua pontuação foi de {contador} !')
 cmd('pause')
