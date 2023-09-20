@@ -11,8 +11,8 @@ while not verifica :
         auxiliar = 0
         verifica = True
         while auxiliar <= int(contador) :
-            print(f"{auxiliar} X {int(num)} = {int(num) * auxiliar}")
             auxiliar += 1
+            print(f"{auxiliar} X {int(num)} = {int(num) * auxiliar}")
     else :
             verifica = False
 #saida do programa
