@@ -13,7 +13,7 @@ def verificacao():
         a = True
     return a
 
-def create():
+def create() -> list[str]:
     '''
     Adiciona clientes na lista.
     '''
@@ -30,7 +30,7 @@ def create():
         print('Insira apenas valores válidos')
     return [nome, telefone, email, idade]
 
-def read():
+def read() -> None:
     for i in range(0,len(clientes)):
         print(f'Cliente {i + 1}\n   nome: {clientes[i][0]}, telefone: {clientes[i][1]}, email: {clientes[i][2]}, idade: {clientes[i][3]} .')
 
@@ -65,7 +65,7 @@ def setDelete():
     else:
         print('Digite apenas números que correspondem ao menu.'), wait(3)
 
-def receive() -> str :
+def receive(a: str) -> str :
     '''
     Recebe os inputs e já trata casos de Keyboard Interrupt.
     '''
@@ -91,12 +91,15 @@ def search() -> None :
     '''
     name = None
     try:
-        name = input('Digite o nome do cliente que gostaria de buscar os dados: ')
+        name = input('Digite o nome do cliente que gostaria de buscar os dados: ').capitalize()
         p = 0
         for i in clientes:
             cliente = clientes[p]
-            if name in cliente:
+            if name.strip() in cliente:
                 print(f'Cliente {p + 1}\n   nome: {cliente[0]}, telefone: {cliente[1]}, email: {cliente[2]}, idade: {cliente[3]} .')
+            else:
+                print('Cliente não encontrado, pois não foi cadastrado.')
+                break
             p += 1
     except KeyboardInterrupt:
         print('Não foi possivel realizar essa ação !')
@@ -105,16 +108,17 @@ def menu() -> None:
     '''
     Exibe o menu.
     '''
+ 
     cmd('cls'), print(f'Você tem {len(clientes)} cadastrados\n1 - Cadastrar cliente\n2 - Ver clientes cadastrados\n3 - Buscar cliente\n4 - Alterar cadastros\n5 - Deletar algum cadastro\n6 - Encerrar programa')
-
+    
     a = receive('menu1')
+
     return a
 
 def main():
     op = menu()
-
     match op :
-        case '1':            
+        case '1':
             cliente = create()
             clientes.append(cliente)
             del cliente
@@ -130,6 +134,7 @@ def main():
             if a :
                 search()
                 cmd('pause')
+            main()
         case '4':
             a = verificacao()
             if a:
@@ -143,7 +148,7 @@ def main():
         case '6':
             print('Encerrando . . .')
         case _:
-            print('opção invalida')
+            cmd('cls'),print('Opção invalida'),wait(3),cmd('cls')
             main()
 
 if __name__ == '__main__':
