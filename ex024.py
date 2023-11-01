@@ -3,29 +3,20 @@ import time
 import datetime
 from os import system as cmd
 
-id = 1
-tarefas : []
+id= 1
 
-    
-
-def add():
-    tarefas = []
+def add(id):
+    id = id + 1
     cmd('cls')
     nome = input("Passe o nome da tarefa : ")
     data = datetime.date.today().strftime('%d/%m/%Y')
     hora = datetime.datetime.now().strftime('%H:%M:%S')
-    tarefa = {
-        'id' : len(tarefas) + 1,
-        'data' : data,
-        'hora' : hora,
-        'nome' : nome
-    }
-    
-    tarefas.append(tarefa)
+    tarefa = ['\n',id,nome,data,hora]
     
     with open('todo.csv', 'a') as todo:
-        for coisa in tarefa:
-            todo.write(coisa)
+        escrever = csv.writer(todo, delimiter=',')
+        escrever.writerow(tarefa)
+    print('Adicionado com sucesso !')
 
 def read():
     cmd('cls')
@@ -45,7 +36,7 @@ def main():
     op = menu()
     match op:
         case '1':
-            add(),main()
+            add(id),main()
         case '2':
             read(),main()
         case '3':
